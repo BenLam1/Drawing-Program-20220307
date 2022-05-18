@@ -3,9 +3,11 @@ Boolean draw=false;
 float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, drawingDiameter;
 //
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+float secondTextX, secondTextY, secondtTextWidth, secondTextHeight;
 int reset=1;
 color white=255, resetColour=white, red=#FF0303, black=0, quitButtonColour;
 String quitButtonString = "QUIT";
+String secontTextString = "WAHOO";
 //
 PFont font;
 int initialFontSize=55;
@@ -21,6 +23,13 @@ void setup() {
   quitButtonY = height*0;
   quitButtonWidth = width*1/10;
   quitButtonHeight = height*1/20;
+  //
+  secondTextX = quitButtonX;
+  secondTextY = height*1/20;
+  secondtTextWidth = quitButtonWidth;
+  secondTextHeight = quitButtonHeight;
+  //
+  font = createFont ("ArialMT", initialFontSize);
   //
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
 }//End setup
@@ -44,6 +53,16 @@ void draw() {
   fill(resetColour); //White, not night mode friendly
   //
   //Text, Quit Button
+  fill(black); //Ink
+  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
+  size = 20; //Change until fits
+  textFont(font, size);
+  text(quitButtonString, quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+  //
+  //
+  fill(white);
+  rect(secondTextX, secondTextY, secondtTextWidth, secondTextHeight);
   fill(black); //Ink
   textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
   //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
